@@ -1,0 +1,22 @@
+/* 
+ * Container
+ *
+ * A simple container for the sake of this demo
+ *
+ */
+
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-top: 1.5rem;
+}
+
+@media screen and (max-width: 840px) {
+  
+  .container {
+    width: 99%;
+  }
+  
+}
