@@ -43,4 +43,4 @@ NoClickDelay.prototype = {
 		}
 	}
 };
-var noClickDelay = new NoClickDelay(document.getElementsByTagName("input"));
+var noClickDelay = new NoClickDelay(document.getElementsByClassName("js-touch-delay"));
