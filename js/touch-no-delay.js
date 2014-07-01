@@ -39,3 +39,4 @@ NoClickDelay.prototype = {
 		}
 	}
 };
+NoClickDelay(document.body);
