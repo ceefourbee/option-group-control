@@ -1,6 +1,10 @@
-function NoClickDelay(el) {
-	this.element = el;
-	if( window.Touch ) this.element.addEventListener('touchstart', this, false);
+function NoClickDelay(elements) {
+	this.elements = elements;
+	if (window.Touch) {
+	  for (var i = 0; i < elements.length; i++) {
+	    this.elements[i].addEventListener('touchstart', this, false);
+	  }
+	}
 }
 
 NoClickDelay.prototype = {
@@ -39,4 +43,4 @@ NoClickDelay.prototype = {
 		}
 	}
 };
-var noClickDelay = new NoClickDelay(document);
+var noClickDelay = new NoClickDelay(document.getElementsByTagName("input"));
