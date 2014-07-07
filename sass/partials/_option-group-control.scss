@@ -1,0 +1,118 @@
+/*
+ * Option group control
+ *
+ * For styling a group of radiobuttons or checkboxes in a snazzy and friendly way
+ * Below IE8 it defaults to your base styles
+ * :root * > is a hacky selector for everything but IE8 and below
+ * I like my rem values, so you WILL see double properties and values for px fallback
+ *
+ * 1. br only needed for IE8 and below so are removed everywhere else 
+ * 2. line-height gives uniformed height in iOS
+ * 3. Inputs are not hidden using display: none as it stops things like jQuery Validate working - 
+ *    I usually extend a helper for these styles, but repeating here for clarity 
+ *
+ */
+ 
+// Colour variables added here for standalone clarity
+$colourWhite: #FFF;
+$lightGrey: #EEE;
+$deepRed: #9E1847;
+
+
+:root * > .option-group-control { 
+  @at-root {
+    
+    #{&} {
+      border: 1px solid $lightGrey;
+      padding: 12px 12px 11px;
+      padding: .75rem .75rem .6875rem;
+      
+      > legend {
+        padding: 0 4px;
+      }
+      
+      > br { /* 1 */
+        display: none; 
+      }
+      
+      > label {
+        float: left;
+        display: block;
+        margin-right: 2px;
+        margin-right: .125rem;
+        margin-bottom: 2px;
+        margin-bottom: .125rem;
+        padding: 11px 16px 11px 37px;
+        padding: .6875rem 1rem .6875rem 2.3125rem;
+        /* 2 */
+        line-height: 1.5; 
+        color: $deepRed;
+        background-color: $lightGrey;
+        cursor: pointer;
+        
+        &:before {
+          content: '';
+          speak: none;
+          float: left;
+          width: 18px;
+          width: 1.125rem;
+          height: 18px;
+          height: 1.125rem;
+          margin-top: 2px;
+          margin-top: .125rem;
+          margin-left: -25px;
+          margin-left: -1.5625rem;
+          background-image: url(gfx/option-group-control-sprite.svg);
+          background-repeat: no-repeat;
+          background-size: 200%;
+        }
+      }
+      
+      > input[type=radio] {
+      
+        + label:before {
+          background-position: 0 0;
+        }
+        &:checked + label:before {
+          background-position: 0 92.86%; /* 0 -17px */
+        }
+      }
+      
+      > input[type=checkbox] {
+      
+        + label:before {
+          background-position: 92.86% 0; /* -17px 0 */
+        }
+        &:checked + label:before {
+          background-position: 92.86% 92.86%; /* -17px -17px */
+        }
+      }
+      
+      > input[type=radio],
+      > input[type=checkbox] { /* 3 */
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        
+        &:checked + label {
+          color: $colourWhite;
+          background-color: $deepRed;
+        }
+      }
+    }
+      
+    #{&}--vertical-list {
+    
+      > label {
+        float: none;
+        margin-right: 0;
+      }      
+    }
+    
+  }
+}
