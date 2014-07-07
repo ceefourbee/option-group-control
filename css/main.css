@@ -441,14 +441,17 @@ textarea {
  * Anchors
  */
 a {
-  color: #3C78B4;
+  color: #9e1847;
   font-weight: 700;
-  border-bottom: 1px solid #3C78B4; }
+  border-bottom: 1px solid #9e1847; }
 
 a,
 a:hover,
 a:focus {
   text-decoration: none; }
+
+a:hover {
+  border-bottom: transparent; }
 
 /*
  * Give all block elements the base margin
