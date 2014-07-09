@@ -18,11 +18,9 @@ $colourWhite: #FFF;
 $lightGrey: #EEE;
 $deepRed: #9E1847;
 
-
+// Compiles in Sass 3.3.9
 :root * > .option-group-control { 
-  @at-root {
     
-    #{&} {
       border: 1px solid $lightGrey;
       padding: 12px 12px 11px;
       padding: .75rem .75rem .6875rem;
@@ -104,15 +102,12 @@ $deepRed: #9E1847;
           background-color: $deepRed;
         }
       }
-    }
       
-    #{&}--vertical-list {
+    &--vertical-list {
     
       > label {
         float: none;
         margin-right: 0;
       }      
-    }
-    
-  }
+    } 
 }
